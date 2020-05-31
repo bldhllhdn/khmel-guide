@@ -1,0 +1,10 @@
+<h1>Авторизація</h1>
+<%= form_for :user do |f|%>
+  <p> Логін: <br>
+  <%= f.text_field :username%>
+  </p>
+  <p> Пароль: <br>
+  <%= f.password_field :password%>
+  </p>
+  <%= f.submit 'Авторизуватись' %>
+<%end%>

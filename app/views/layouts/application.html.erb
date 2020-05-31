@@ -9,6 +9,15 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+    <% if logged_in? %>
+      <%= link_to 'Авторизація', login_path %>
+      <%= link_to 'Реєстрація', new_user_path %>
+    <% else %>
+      <% if is_admin? %>
+        <%= link_to 'Додати', new_location_path %>  
+      <% end %>
+      <%= link_to 'Вийти', logout_path %>
+    <% end %>
     <div class="container">
       <%= yield %>
     </div>

@@ -2,10 +2,8 @@
 
 one:
   username: MyString
-  password: MyString
-  admin: false
+  body: MyText
 
 two:
   username: MyString
-  password: MyString
-  admin: false
+  body: MyText
