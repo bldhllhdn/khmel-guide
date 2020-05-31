@@ -9,15 +9,20 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+    <nav class="site-header sticky-top py-1">
+  <div class="container d-flex flex-column flex-md-row justify-content-between">
+    <span class="py-2 d-none d-md-inline-block"><strong><%= link_to 'ХмельГайд', root_path %></strong></span>
     <% if logged_out? %>
-      <%= link_to 'Авторизація', login_path %>
-      <%= link_to 'Реєстрація', new_user_path %>
+      <span class="py-2 d-none d-md-inline-block"><%= link_to 'Авторизація', login_path %></span>
+      <span class="py-2 d-none d-md-inline-block"><%= link_to 'Реєстрація', new_user_path %></span>
     <% else %>
       <% if is_admin? %>
-        <%= link_to 'Додати', new_location_path %>
+        <span class="py-2 d-none d-md-inline-block"><%= link_to 'Додати локацію', new_location_path %></span>
       <% end %>
-      <%= link_to 'Вийти', logout_path %>
+      <span class="py-2 d-none d-md-inline-block"><%= link_to 'Вийти', logout_path %></span>
     <% end %>
+  </div>
+</nav>
     <div class="container">
       <%= yield %>
     </div>

@@ -12,7 +12,9 @@ class ApplicationController < ActionController::Base
   end
 
   def is_admin?
-    current_user.admin
+    unless logged_out?
+      current_user.admin
+    end
   end
 
 end

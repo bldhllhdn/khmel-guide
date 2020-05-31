@@ -1,16 +1,16 @@
 <h2>Редагувати локацію</h2>
 <%= form_for :location, url: location_path(@location), method: :patch do |f| %>
   <p> Назва:<br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, :class => "form-control" %>
   </p>
   <p> Адреса:<br>
-    <%= f.text_field :address %>
+    <%= f.text_field :address, :class => "form-control" %>
   </p>
   <p> Категорія:<br>
-      <%= f.text_field :category %>
+      <%= f.text_field :category, :class => "form-control" %>
   </p>
   <p> Опис:<br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, :class => "form-control" %>
   </p>
-  <p><%= f.submit %></p>
+  <p><%= f.submit 'Редагувати локацію', :class => "btn btn-outline-primary" %></p>
 <% end %>

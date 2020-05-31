@@ -1,11 +1,11 @@
 <h1>Зареєструватись</h1>
 <%= form_for @user do |f|%>
   <p> Логін: <br>
-  <%= f.text_field :username%>
+  <%= f.text_field :username, :class => "form-control" %>
   </p>
   <p> Пароль: <br>
-  <%= f.password_field :password%>
+  <%= f.password_field :password, :class => "form-control" %>
   </p>
   <%= f.hidden_field :admin, :value => false %>
-  <%= f.submit 'Зареєструватись' %>
+  <%= f.submit 'Зареєструватись', :class => "btn btn-outline-primary" %>
 <%end%>

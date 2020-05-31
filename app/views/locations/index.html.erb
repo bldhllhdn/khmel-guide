@@ -1,7 +1,12 @@
-<h2>Локації Хмєля</h2>
 <% @location.each do |l| %>
-  <h3><%= l.title%></h3>
-  <h4><%= l.category %></h4>
-  <h5><%= l.address %></h5>
-  <%= link_to 'Детальніше >>', location_path(l) %>
+<div class="card mb-4">
+  <div class="card-header">
+  <h5 class="my-0 font-weight-normal"><%= l.title%> <small><mark><%= l.category %></mark></small></h5>
+  <small class="text-muted"><%= l.address %></small>
+  </div>
+  <div class="card-body">
+  <p><%= l.description %></p>
+  <span class="btn btn-outline-primary">  <%= link_to 'Детальніше >>', location_path(l) %></span>
+  </div>
+</div>
 <% end %>

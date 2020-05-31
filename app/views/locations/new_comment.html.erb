@@ -1,5 +1,5 @@
 <h2>Додати коментар</h2>
 <%= form_for :comment do |f| %>
-  <%= f.text_area :body, :required => "true"%>
-  <%= f.submit "Додати коментар" %>
+  <%= f.text_area :body, :required => "true", :class => "form-control" %>
+  <%= f.submit "Додати коментар", :class => "btn btn-outline-primary" %>
 <% end %>

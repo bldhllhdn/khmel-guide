@@ -1,18 +1,23 @@
-<% if is_admin? %>
-<%= link_to "Редагувати", edit_location_path(@location) %>
-<%= link_to "Видалити", @location, data: { method: :delete }%>
-<% end %>
-<h3><%= @location.title%></h3>
-<h4><%= @location.category %></h4>
-<h5><%= @location.address %></h5>
-<p><%= @location.description %></p>
-<% unless logged_out? %>
-  <h3>Коментарі</h3>
-  <% @location.comments.each do |c| %>
-    <h3><%= c.user.username %></h3>
-    <h4><%= c.body %></h4>
+
+<div class="card mb-4">
+  <div class="card-header">
+  <h5 class="my-0 font-weight-normal"><%= @location.title%> <small><mark><%= @location.category %></mark></small></h5>
+  <small class="text-muted"><%= @location.address %></small><br><br>
+  <% if is_admin? %>
+  <%= link_to "Редагувати", edit_location_path(@location), class: "btn btn-outline-warning btn-sm" %>
+  <%= link_to "Видалити", @location, data: { method: :delete }, class: "btn btn-outline-danger btn-sm" %>
   <% end %>
-  <%= link_to "Додати коментар", :new_comment %>
+  </div>
+  <div class="card-body">
+  <p><%= @location.description %></p>
+  </div>
+</div>
+<h5>Коментарі</h5>
+<% unless logged_out? %>
+  <% @location.comments.each do |c| %>
+    <p><strong><%= c.user.username %></strong>: <muted><%= c.body %></muted></p>
+  <% end %>
+  <%= link_to "Додати коментар", :new_comment, class: "btn btn-outline-primary btn-sm" %>
 <% else %>
   <p>Коментарі можуть переглядати лише авторизовані користувачі.</p>
 <% end %>
