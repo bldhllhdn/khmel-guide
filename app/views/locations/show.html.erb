@@ -1,6 +1,18 @@
+<% if is_admin? %>
 <%= link_to "Редагувати", edit_location_path(@location) %>
 <%= link_to "Видалити", @location, data: { method: :delete }%>
+<% end %>
 <h3><%= @location.title%></h3>
 <h4><%= @location.category %></h4>
 <h5><%= @location.address %></h5>
 <p><%= @location.description %></p>
+<% unless logged_out? %>
+  <h3>Коментарі</h3>
+  <% @location.comments.each do |c| %>
+    <h3><%= c.user.username %></h3>
+    <h4><%= c.body %></h4>
+  <% end %>
+  <%= link_to "Додати коментар", :new_comment %>
+<% else %>
+  <p>Коментарі можуть переглядати лише авторизовані користувачі.</p>
+<% end %>

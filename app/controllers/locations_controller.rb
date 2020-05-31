@@ -35,9 +35,25 @@ class LocationsController < ApplicationController
     redirect_to @location
   end
 
-  private 
+  def new_comment
+      @comment = nil
+  end
+
+  def create_comment
+      @location = Location.find(params[:id])
+      @comment = @location.comments.new(comment_params)
+      @comment.user = current_user
+      @comment.save
+      redirect_to @location
+  end
+
+  private
 
   def location_params
     params.require(:location).permit(:title, :address, :category, :description)
+  end
+
+  def comment_params
+    params.require(:comment).permit(:body)
   end
 end
