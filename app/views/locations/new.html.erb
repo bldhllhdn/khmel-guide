@@ -1,0 +1,16 @@
+<h2>Створити локацію</h2>
+<%= form_for :location, url: locations_path do |f| %>
+  <p> Назва:<br>
+  <%= f.text_field :title %>
+  </p>
+  <p> Адреса:<br>
+  <%= f.text_field :address %>
+  </p>
+  <p> Ключове слово:<br>
+  <%= f.text_field :category %>
+  </p>
+  <p> Опис:<br>
+  <%= f.text_area :description %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>
